@@ -1,0 +1,129 @@
+* { box-sizing: border-box; }
+
+body {
+  background: #ece6d8;
+  color: #2b2620;
+  font-family: "Georgia", "Times New Roman", serif;
+  margin: 0;
+  padding: 2rem 0 4rem;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fbf8f2;
+  padding: 2rem 2.5rem 3rem;
+  border: 1px solid #d8d0c0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.exercise {
+  margin: 0 0 1.8rem;
+}
+
+.exercise h3 {
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+}
+
+.staff-wrap svg {
+  display: block;
+}
+
+/* --- Edit mode toggle button, fixed on the left --- */
+#edit-mode-toggle {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #8a4b2f;
+  background: #fbf8f2;
+  color: #8a4b2f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#edit-mode-toggle.active {
+  background: #8a4b2f;
+  color: #fbf8f2;
+}
+
+body.edit-mode-on .page {
+  margin-left: 260px;
+  max-width: 900px;
+}
+
+/* --- Edit grid --- */
+.grid-wrap {
+  margin-top: 0.6rem;
+  overflow-x: auto;
+}
+
+table.edit-grid {
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+table.edit-grid th {
+  text-align: right;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+  font-weight: normal;
+  font-style: italic;
+  border-bottom: 1px solid #d8d0c0;
+}
+
+table.edit-grid td.grid-cell {
+  width: 28px;
+  height: 24px;
+  text-align: center;
+  border: 1px solid #d8d0c0;
+  cursor: pointer;
+  user-select: none;
+}
+
+table.edit-grid td.grid-cell.measure-start {
+  border-left: 2px solid #8a4b2f;
+}
+
+table.edit-grid td.grid-cell:hover {
+  background: #f0e9d8;
+}
+
+table.edit-grid td.grid-cell.filled {
+  background: #efe3cf;
+  font-weight: bold;
+  color: #8a4b2f;
+}
+
+table.edit-grid td.grid-cell.filled.flam {
+  text-decoration: underline;
+}
+
+.grid-hint {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #6b6153;
+  max-width: 500px;
+}
+
+.reset-btn {
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #8a4b2f;
+  background: #fbf8f2;
+  color: #8a4b2f;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
