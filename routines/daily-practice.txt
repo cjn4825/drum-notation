@@ -1,0 +1,51 @@
+================================================================================
+                    DAILY DRUM PRACTICE ROUTINE (14 RUDIMENTS)
+================================================================================
+
+--------------------------------------------------------------------------------
+PART 1: PRACTICE PAD (5 MINS PER SECTION)
+--------------------------------------------------------------------------------
+
+STAGE 1: WARMUP & FOUNDATIONS @ 60 BPM
+  8-on-a-Hand:       R R R R R R R R | L L L L L L L L (K 1/2/3/4)
+  Single Stroke:     R L R L R L R L | R L R L (Single Four)
+  Double Stroke:     R R L L R R L L | R R L L R R L L R (9-Stroke)
+  Single Paradiddle: R l r r | L r l l
+
+STAGE 2: DIDDLES, FLAMS & DRAGS @ 70 BPM
+  Double Paradiddle: R L R L R R | L R L R L L
+  Paradiddle-Diddle: R L R R L L | R L R R L L
+  5-Stroke Roll:     R R L L R | L L R R L
+  6-Stroke Roll:     R L L R R L
+  Flam & Flam Tap:   lR | rL | lR R | rL L
+  Flam Accent:       lR L R | rL R L
+  Drag & Drag Tap:   rrL | llR | rrL R | llR L
+  14-Rudiment Flow:  Cycle all 14 back-to-back
+
+STAGE 3: SPEED & ACCENTS @ 90+ BPM
+  Stroke Integration: R L R L R L R L | R R L L R R L L
+  Dynamic Accents:    R l r r | L r l l | R L L R R L
+  Speed Bursts:       R R L L R | R R L L R R L L R | R L R R L L
+  Burnout:            R L R L | R R L L (Slow -> Fast -> Slow)
+
+
+--------------------------------------------------------------------------------
+PART 2: DRUM KIT (5 MINS PER SECTION) @ 70-80 BPM
+--------------------------------------------------------------------------------
+
+STAGE 1: KIT ORCHESTRATION
+  Singles & Doubles:   R -> High Tom | L -> Snare
+                       R R -> Floor Tom | L L -> Snare
+  Paradiddle & 6-Str:  R -> Floor | L -> High Tom | r r / l l -> Snare
+                       R L L R R L (Accents on outer R/L)
+  Flams, Drags & Rolls: rrL R -> Ride Bell | R R L L R -> Crash+Kick
+
+STAGE 2: GROOVE DYNAMICS
+  Ghost Notes:         R l r r L r l l | rrL R llR L (Keep 8th Hi-Hat)
+
+STAGE 3: GROOVE TO FILL TRANSITIONS
+  4-Bar Loop:
+    Bars 1-3 (Groove): Hi-Hat (R 8ths) | Snare (L on 2/4) | Kick (1/3)
+    Bar 4 (Fill):      R L L R R L | R L R R L L | R R L L R
+    Bar 5 (Reset):     R (Crash + Kick on Beat 1)
+================================================================================

@@ -31,8 +31,43 @@ h1 {
   margin: 0 0 0.3rem;
 }
 
+.staff-wrap {
+  position: relative; /* anchors the absolutely-positioned practice-cursor */
+}
+
 .staff-wrap svg {
   display: block;
+}
+
+.practice-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: #c0392b;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.exercise-controls {
+  margin-bottom: 0.3rem;
+}
+
+.ex-play-toggle {
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #8a4b2f;
+  background: #fbf8f2;
+  color: #8a4b2f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ex-play-toggle.active {
+  background: #8a4b2f;
+  color: #fbf8f2;
 }
 
 /* --- Edit mode toggle button, fixed on the left --- */
@@ -126,4 +161,171 @@ table.edit-grid td.grid-cell.filled.flam {
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 1rem;
+}
+
+/* --- Tabs --- */
+.tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #d8d0c0;
+}
+
+.tab-btn {
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d8d0c0;
+  border-bottom: none;
+  background: #ece6d8;
+  color: #6b6153;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+
+.tab-btn.active {
+  background: #fbf8f2;
+  color: #8a4b2f;
+  font-weight: bold;
+  border-color: #d8d0c0;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* --- Warmup notepad --- */
+#warmup-editor {
+  display: block;
+  width: 100%;
+  min-height: 640px;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #2b2620;
+  background: #fffefb;
+  border: 1px solid #d8d0c0;
+  border-radius: 4px;
+  padding: 1.2rem;
+  white-space: pre;
+  resize: vertical;
+}
+
+/* --- Metronome panel, fixed top-right (Edit Mode button is fixed top-left) --- */
+#metronome-panel {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10;
+  border: 1px solid #8a4b2f;
+  background: #fbf8f2;
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  min-width: 190px;
+}
+
+#metronome-panel h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: #8a4b2f;
+}
+
+.metronome-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+#bpm-input {
+  width: 4.5rem;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.3rem;
+}
+
+#metronome-toggle {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #8a4b2f;
+  background: #fbf8f2;
+  color: #8a4b2f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#metronome-toggle.active {
+  background: #8a4b2f;
+  color: #fbf8f2;
+}
+
+.accent-label {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.45rem;
+  color: #6b6153;
+  cursor: pointer;
+}
+
+.accent-label input {
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.warmup-controls {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.warmup-file-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+
+#routine-select {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.4rem;
+}
+
+#routine-current-label {
+  font-style: italic;
+  color: #6b6153;
+}
+
+#beat-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d8d0c0;
+  margin: 0.6rem auto 0;
+}
+
+#beat-indicator.pulse {
+  animation: beat-pulse 0.15s ease-out;
+}
+
+#beat-indicator.pulse-accent {
+  animation: beat-pulse-accent 0.15s ease-out;
+}
+
+@keyframes beat-pulse {
+  0% { background: #8a4b2f; transform: scale(1.3); }
+  100% { background: #d8d0c0; transform: scale(1); }
+}
+
+@keyframes beat-pulse-accent {
+  0% { background: #c0392b; transform: scale(1.6); }
+  100% { background: #d8d0c0; transform: scale(1); }
 }

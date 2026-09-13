@@ -1,5 +1,10 @@
 // Renders the real VexFlow staff notation for one exercise, reflecting its
 // current (possibly user-edited) state.
+//
+// Returns layout info the practice-cursor (sequencer.js) needs to draw a
+// playhead line in the same pixel coordinate space as the rendered SVG:
+// each note's absolute X position, in exercise order, plus the SVG's
+// overall width/height.
 
 function renderNotation(VF, doc, container, exercise) {
   container.innerHTML = "";
@@ -7,13 +12,14 @@ function renderNotation(VF, doc, container, exercise) {
   var MEASURE_WIDTH = 170;
   var FIRST_MEASURE_EXTRA = 70; // room for clef + time signature
   var totalWidth = exercise.measures.length * MEASURE_WIDTH + FIRST_MEASURE_EXTRA + 20;
+  var totalHeight = 130;
 
   var elId = exercise.id + "_svg";
   var target = doc.createElement("div");
   target.id = elId;
   container.appendChild(target);
 
-  var f = new VF.Factory({ renderer: { elementId: elId, width: totalWidth, height: 130 } });
+  var f = new VF.Factory({ renderer: { elementId: elId, width: totalWidth, height: totalHeight } });
   var ctx = f.getContext();
 
   function buildStaveNote(cell) {
@@ -38,6 +44,7 @@ function renderNotation(VF, doc, container, exercise) {
     return note;
   }
 
+  var notePositions = [];
   var x = 10;
   exercise.measures.forEach(function (measure, mi) {
     var staveWidth = MEASURE_WIDTH + (mi === 0 ? FIRST_MEASURE_EXTRA : 0);
@@ -53,8 +60,14 @@ function renderNotation(VF, doc, container, exercise) {
     f.Formatter().joinVoices([voice]).formatToStave([voice], stave);
     voice.setContext(ctx).drawWithStyle();
 
+    staveNotes.forEach(function (note) {
+      notePositions.push({ x: note.getAbsoluteX() });
+    });
+
     x += staveWidth;
   });
+
+  return { width: totalWidth, height: totalHeight, notePositions: notePositions };
 }
 
 if (typeof module !== "undefined") module.exports = renderNotation;
