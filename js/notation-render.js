@@ -6,6 +6,10 @@
 // each note's absolute X position, in exercise order, plus the SVG's
 // overall width/height.
 
+// Gruvbox (dark, medium contrast) -- https://github.com/morhetz/gruvbox
+var GB_FG1 = "#ebdbb2"; // notes/rests
+var GB_FG4 = "#a89984"; // stave lines, barlines, clef, time signature
+
 function renderNotation(VF, doc, container, exercise) {
   container.innerHTML = "";
 
@@ -23,24 +27,28 @@ function renderNotation(VF, doc, container, exercise) {
   var ctx = f.getContext();
 
   function buildStaveNote(cell) {
-    if (!cell) return f.StaveNote({ keys: ["b/4"], duration: "4r" });
+    var note;
+    if (!cell) {
+      note = f.StaveNote({ keys: ["b/4"], duration: "4r" });
+    } else {
+      var inst = INSTRUMENTS_BY_ID[cell.inst];
+      var noteheadCode = cell.variant === "ghost" ? "g" : inst.notehead;
+      var keyStr = inst.key + "/" + noteheadCode;
+      note = f.StaveNote({ keys: [keyStr], duration: "4" });
 
-    var inst = INSTRUMENTS_BY_ID[cell.inst];
-    var noteheadCode = cell.variant === "ghost" ? "g" : inst.notehead;
-    var keyStr = inst.key + "/" + noteheadCode;
-    var note = f.StaveNote({ keys: [keyStr], duration: "4" });
+      if (cell.variant === "accent") {
+        note.addModifier(new VF.Articulation("a>").setPosition(VF.Modifier.Position.ABOVE), 0);
+      } else if (cell.variant === "open") {
+        note.addModifier(new VF.Articulation(PICT_OPEN).setPosition(VF.Modifier.Position.ABOVE), 0);
+      }
 
-    if (cell.variant === "accent") {
-      note.addModifier(new VF.Articulation("a>").setPosition(VF.Modifier.Position.ABOVE), 0);
-    } else if (cell.variant === "open") {
-      note.addModifier(new VF.Articulation(PICT_OPEN).setPosition(VF.Modifier.Position.ABOVE), 0);
+      if (cell.flam) {
+        var grace = f.GraceNote({ keys: [keyStr], duration: "8", slash: true });
+        note.addModifier(f.GraceNoteGroup({ notes: [grace] }), 0);
+      }
     }
 
-    if (cell.flam) {
-      var grace = f.GraceNote({ keys: [keyStr], duration: "8", slash: true });
-      note.addModifier(f.GraceNoteGroup({ notes: [grace] }), 0);
-    }
-
+    note.setStyle({ fillStyle: GB_FG1, strokeStyle: GB_FG1 });
     return note;
   }
 
@@ -53,6 +61,7 @@ function renderNotation(VF, doc, container, exercise) {
       stave.addClef("percussion");
       stave.addTimeSignature("4/4");
     }
+    stave.setStyle({ fillStyle: GB_FG4, strokeStyle: GB_FG4 });
     stave.setContext(ctx).drawWithStyle();
 
     var staveNotes = measure.map(buildStaveNote);
@@ -66,6 +75,15 @@ function renderNotation(VF, doc, container, exercise) {
 
     x += staveWidth;
   });
+
+  // Safety net: anything that doesn't respond to setStyle (e.g. articulation
+  // glyphs) still inherits fill/stroke from the root <svg>, which VexFlow
+  // otherwise defaults to black.
+  var svgEl = target.querySelector("svg");
+  if (svgEl) {
+    svgEl.setAttribute("fill", GB_FG1);
+    svgEl.setAttribute("stroke", GB_FG1);
+  }
 
   return { width: totalWidth, height: totalHeight, notePositions: notePositions };
 }

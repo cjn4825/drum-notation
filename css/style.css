@@ -1,8 +1,29 @@
+/* Gruvbox (dark, medium contrast) -- https://github.com/morhetz/gruvbox */
+:root {
+  --gb-bg0-hard: #1d2021;
+  --gb-bg0: #282828;
+  --gb-bg1: #3c3836;
+  --gb-bg2: #504945;
+  --gb-bg3: #665c54;
+  --gb-bg4: #7c6f64;
+  --gb-fg1: #ebdbb2;
+  --gb-fg2: #d5c4a1;
+  --gb-fg3: #bdae93;
+  --gb-fg4: #a89984;
+  --gb-red: #fb4934;
+  --gb-green: #b8bb26;
+  --gb-yellow: #fabd2f;
+  --gb-blue: #83a598;
+  --gb-purple: #d3869b;
+  --gb-aqua: #8ec07c;
+  --gb-orange: #fe8019;
+}
+
 * { box-sizing: border-box; }
 
 body {
-  background: #ece6d8;
-  color: #2b2620;
+  background: var(--gb-bg0-hard);
+  color: var(--gb-fg1);
   font-family: "Georgia", "Times New Roman", serif;
   margin: 0;
   padding: 2rem 0 4rem;
@@ -11,15 +32,16 @@ body {
 .page {
   max-width: 900px;
   margin: 0 auto;
-  background: #fbf8f2;
+  background: var(--gb-bg0);
   padding: 2rem 2.5rem 3rem;
-  border: 1px solid #d8d0c0;
+  border: 1px solid var(--gb-bg2);
 }
 
 h1 {
   text-align: center;
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
+  color: var(--gb-fg1);
 }
 
 .exercise {
@@ -29,6 +51,7 @@ h1 {
 .exercise h3 {
   font-size: 1rem;
   margin: 0 0 0.3rem;
+  color: var(--gb-fg2);
 }
 
 .staff-wrap {
@@ -45,7 +68,7 @@ h1 {
   left: 0;
   width: 2px;
   height: 100%;
-  background: #c0392b;
+  background: var(--gb-red);
   pointer-events: none;
   will-change: transform;
 }
@@ -58,16 +81,16 @@ h1 {
   font-family: Georgia, serif;
   font-size: 0.8rem;
   padding: 0.3rem 0.7rem;
-  border: 1px solid #8a4b2f;
-  background: #fbf8f2;
-  color: #8a4b2f;
+  border: 1px solid var(--gb-orange);
+  background: var(--gb-bg0);
+  color: var(--gb-orange);
   border-radius: 4px;
   cursor: pointer;
 }
 
 .ex-play-toggle.active {
-  background: #8a4b2f;
-  color: #fbf8f2;
+  background: var(--gb-orange);
+  color: var(--gb-bg0-hard);
 }
 
 /* --- Edit mode toggle button, fixed on the left --- */
@@ -79,16 +102,16 @@ h1 {
   font-family: Georgia, serif;
   font-size: 0.9rem;
   padding: 0.5rem 0.9rem;
-  border: 1px solid #8a4b2f;
-  background: #fbf8f2;
-  color: #8a4b2f;
+  border: 1px solid var(--gb-orange);
+  background: var(--gb-bg0);
+  color: var(--gb-orange);
   border-radius: 4px;
   cursor: pointer;
 }
 
 #edit-mode-toggle.active {
-  background: #8a4b2f;
-  color: #fbf8f2;
+  background: var(--gb-orange);
+  color: var(--gb-bg0-hard);
 }
 
 body.edit-mode-on .page {
@@ -114,30 +137,32 @@ table.edit-grid th {
   white-space: nowrap;
   font-weight: normal;
   font-style: italic;
-  border-bottom: 1px solid #d8d0c0;
+  color: var(--gb-fg4);
+  border-bottom: 1px solid var(--gb-bg2);
 }
 
 table.edit-grid td.grid-cell {
   width: 28px;
   height: 24px;
   text-align: center;
-  border: 1px solid #d8d0c0;
+  border: 1px solid var(--gb-bg2);
   cursor: pointer;
   user-select: none;
+  color: var(--gb-fg1);
 }
 
 table.edit-grid td.grid-cell.measure-start {
-  border-left: 2px solid #8a4b2f;
+  border-left: 2px solid var(--gb-orange);
 }
 
 table.edit-grid td.grid-cell:hover {
-  background: #f0e9d8;
+  background: var(--gb-bg1);
 }
 
 table.edit-grid td.grid-cell.filled {
-  background: #efe3cf;
+  background: var(--gb-bg2);
   font-weight: bold;
-  color: #8a4b2f;
+  color: var(--gb-yellow);
 }
 
 table.edit-grid td.grid-cell.filled.flam {
@@ -147,7 +172,7 @@ table.edit-grid td.grid-cell.filled.flam {
 .grid-hint {
   font-size: 0.75rem;
   font-style: italic;
-  color: #6b6153;
+  color: var(--gb-fg4);
   max-width: 500px;
 }
 
@@ -155,9 +180,9 @@ table.edit-grid td.grid-cell.filled.flam {
   font-family: Georgia, serif;
   font-size: 0.8rem;
   padding: 0.3rem 0.7rem;
-  border: 1px solid #8a4b2f;
-  background: #fbf8f2;
-  color: #8a4b2f;
+  border: 1px solid var(--gb-orange);
+  background: var(--gb-bg0);
+  color: var(--gb-orange);
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -168,17 +193,17 @@ table.edit-grid td.grid-cell.filled.flam {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #d8d0c0;
+  border-bottom: 2px solid var(--gb-bg2);
 }
 
 .tab-btn {
   font-family: Georgia, serif;
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
-  border: 1px solid #d8d0c0;
+  border: 1px solid var(--gb-bg2);
   border-bottom: none;
-  background: #ece6d8;
-  color: #6b6153;
+  background: var(--gb-bg1);
+  color: var(--gb-fg4);
   border-radius: 4px 4px 0 0;
   cursor: pointer;
   position: relative;
@@ -186,10 +211,10 @@ table.edit-grid td.grid-cell.filled.flam {
 }
 
 .tab-btn.active {
-  background: #fbf8f2;
-  color: #8a4b2f;
+  background: var(--gb-bg0);
+  color: var(--gb-orange);
   font-weight: bold;
-  border-color: #d8d0c0;
+  border-color: var(--gb-bg2);
 }
 
 .tab-panel {
@@ -208,9 +233,9 @@ table.edit-grid td.grid-cell.filled.flam {
   font-family: "Courier New", monospace;
   font-size: 0.85rem;
   line-height: 1.4;
-  color: #2b2620;
-  background: #fffefb;
-  border: 1px solid #d8d0c0;
+  color: var(--gb-fg1);
+  background: var(--gb-bg1);
+  border: 1px solid var(--gb-bg2);
   border-radius: 4px;
   padding: 1.2rem;
   white-space: pre;
@@ -223,8 +248,8 @@ table.edit-grid td.grid-cell.filled.flam {
   right: 1rem;
   top: 1rem;
   z-index: 10;
-  border: 1px solid #8a4b2f;
-  background: #fbf8f2;
+  border: 1px solid var(--gb-orange);
+  background: var(--gb-bg0);
   border-radius: 4px;
   padding: 0.7rem 1rem;
   min-width: 190px;
@@ -233,7 +258,7 @@ table.edit-grid td.grid-cell.filled.flam {
 #metronome-panel h4 {
   margin: 0 0 0.5rem;
   font-size: 0.9rem;
-  color: #8a4b2f;
+  color: var(--gb-orange);
 }
 
 .metronome-controls {
@@ -241,6 +266,7 @@ table.edit-grid td.grid-cell.filled.flam {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
+  color: var(--gb-fg1);
 }
 
 #bpm-input {
@@ -248,29 +274,32 @@ table.edit-grid td.grid-cell.filled.flam {
   font-family: Georgia, serif;
   font-size: 0.9rem;
   padding: 0.2rem 0.3rem;
+  background: var(--gb-bg1);
+  color: var(--gb-fg1);
+  border: 1px solid var(--gb-bg3);
 }
 
 #metronome-toggle {
   font-family: Georgia, serif;
   font-size: 0.85rem;
   padding: 0.35rem 0.7rem;
-  border: 1px solid #8a4b2f;
-  background: #fbf8f2;
-  color: #8a4b2f;
+  border: 1px solid var(--gb-orange);
+  background: var(--gb-bg0);
+  color: var(--gb-orange);
   border-radius: 4px;
   cursor: pointer;
 }
 
 #metronome-toggle.active {
-  background: #8a4b2f;
-  color: #fbf8f2;
+  background: var(--gb-orange);
+  color: var(--gb-bg0-hard);
 }
 
 .accent-label {
   display: block;
   font-size: 0.75rem;
   margin-top: 0.45rem;
-  color: #6b6153;
+  color: var(--gb-fg4);
   cursor: pointer;
 }
 
@@ -297,18 +326,21 @@ table.edit-grid td.grid-cell.filled.flam {
   font-family: Georgia, serif;
   font-size: 0.85rem;
   padding: 0.2rem 0.4rem;
+  background: var(--gb-bg1);
+  color: var(--gb-fg1);
+  border: 1px solid var(--gb-bg3);
 }
 
 #routine-current-label {
   font-style: italic;
-  color: #6b6153;
+  color: var(--gb-fg4);
 }
 
 #beat-indicator {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #d8d0c0;
+  background: var(--gb-bg3);
   margin: 0.6rem auto 0;
 }
 
@@ -321,11 +353,11 @@ table.edit-grid td.grid-cell.filled.flam {
 }
 
 @keyframes beat-pulse {
-  0% { background: #8a4b2f; transform: scale(1.3); }
-  100% { background: #d8d0c0; transform: scale(1); }
+  0% { background: var(--gb-orange); transform: scale(1.3); }
+  100% { background: var(--gb-bg3); transform: scale(1); }
 }
 
 @keyframes beat-pulse-accent {
-  0% { background: #c0392b; transform: scale(1.6); }
-  100% { background: #d8d0c0; transform: scale(1); }
+  0% { background: var(--gb-red); transform: scale(1.6); }
+  100% { background: var(--gb-bg3); transform: scale(1); }
 }
