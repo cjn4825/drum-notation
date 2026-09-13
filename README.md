@@ -5,7 +5,7 @@ Simple, local drum notation builder for playing drums while reading sheet music.
 
 ### Method 1: Docker
 
-build the image
+Build the image
 
 ```bash
 # be in the drum-notation dir
@@ -13,7 +13,7 @@ build the image
 docker build -t drum-notation .
 ```
 
-run the image
+Run the image
 
 ```bash
 docker run -d --name drum-notation \
@@ -32,11 +32,11 @@ python3 ~/drum-notation/server.py --bind 0.0.0.0
 Then open localhost port 8000 in a browser
 
 ## Future Features/Ideas
-* Eventually this will run on a rasberryPi in my HomeLab so I'll change it to allow that
+* Eventually this will run on a Raspberry Pi in my HomeLab, so I'll change it to allow that
 * Allow wav files and upload music
-* build out the practice section to look nicer then a simple text doc look
+* Build out the practice section to look nicer than a simple text doc look
 * Maybe build this out more to be a full learning platform for drums for free
 
 ## Disclaimer
 * Work in progress
-* Also entirely vibe-coded since I don't care to learn the JavaScript/Css/Html stack in depth. Focusing on the deployment and future CI/CD part.
+* Also mostly vibe-coded since I don't care to learn the JavaScript/CSS/HTML stack in depth. Focusing on the deployment and future CI/CD part
