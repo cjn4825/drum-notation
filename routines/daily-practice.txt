@@ -3,9 +3,9 @@ PART 1: PRACTICE PAD (5 MINS PER SECTION)
 --------------------------------------------------------------------------------
 
 STAGE 1: WARMUP & FOUNDATIONS @ 60 BPM
-  8-on-a-Hand:       R R R R R R R R | L L L L L L L L (K 1/2/3/4)
-  Single Stroke:     R L R L R L R L | R L R L (Single Four)
-  Double Stroke:     R R L L R R L L | R R L L R R L L R (9-Stroke)
+  8-on-a-Hand:       R R R R R R R R | L L L L L L L L
+  Single Stroke:     R L R L R L R L | R L R L
+  Double Stroke:     R R L L R R L L | R R L L R R L L R
   Single Paradiddle: R l r r | L r l l
 
 STAGE 2: DIDDLES, FLAMS & DRAGS @ 70 BPM
@@ -16,7 +16,6 @@ STAGE 2: DIDDLES, FLAMS & DRAGS @ 70 BPM
   Flam & Flam Tap:   lR | rL | lR R | rL L
   Flam Accent:       lR L R | rL R L
   Drag & Drag Tap:   rrL | llR | rrL R | llR L
-  14-Rudiment Flow:  Cycle all 14 back-to-back
 
 STAGE 3: SPEED & ACCENTS @ 90+ BPM
   Stroke Integration: R L R L R L R L | R R L L R R L L
@@ -33,7 +32,7 @@ STAGE 1: KIT ORCHESTRATION
   Singles & Doubles:   R -> High Tom | L -> Snare
                        R R -> Floor Tom | L L -> Snare
   Paradiddle & 6-Str:  R -> Floor | L -> High Tom | r r / l l -> Snare
-                       R L L R R L (Accents on outer R/L)
+                       R l l r r L
   Flams, Drags & Rolls: rrL R -> Ride Bell | R R L L R -> Crash+Kick
 
 STAGE 2: GROOVE DYNAMICS
