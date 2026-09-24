@@ -1,14 +1,23 @@
 # Minimal, single-purpose image: run the drum-notation app and nothing else.
-# No build step needed -- server.py is pure standard library, the frontend
-# is plain static files.
+# No build step needed -- server.py is pure standard library except for the
+# Sheet Music tab's official-audio download feature, which needs yt-dlp
+# (Python package) and ffmpeg (system binary, for yt-dlp's audio-extraction
+# postprocessor) -- both installed below. The rest of the app works fine
+# even if this feature were ever removed.
 
 FROM python:3.14-slim
 
 WORKDIR /app
 COPY . .
 
-# server.py writes into routines/ (that's the whole point of the Save
-# button), so the non-root user needs to actually own it, not just read it.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir yt-dlp
+
+# server.py writes into routines/ (Save button) and sheetmusic/ (downloaded
+# official audio), so the non-root user needs to actually own them, not
+# just read them.
 RUN useradd --no-create-home --shell /usr/sbin/nologin appuser \
     && chown -R appuser:appuser /app
 USER appuser

@@ -6,8 +6,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<button id="edit-mode-toggle">Edit Mode</button>
-
 <div id="metronome-panel">
   <h4>Metronome</h4>
   <div class="metronome-controls">
@@ -25,7 +23,7 @@
 <div class="page">
   <div class="tab-bar">
     <button class="tab-btn active" data-tab="warmup">Warmup Routine</button>
-    <button class="tab-btn" data-tab="notation">Notation Practice</button>
+    <button class="tab-btn" data-tab="sheetmusic">Sheet Music</button>
   </div>
 
   <div id="tab-warmup" class="tab-panel active">
@@ -33,7 +31,7 @@
 
     <div class="warmup-file-controls">
       <button id="change-file-btn" class="reset-btn">Change Practice File</button>
-      <select id="routine-select" style="display:none;"></select>
+      <select id="routine-select" class="file-select" style="display:none;"></select>
       <span id="routine-current-label"></span>
     </div>
 
@@ -49,20 +47,36 @@
     </p>
   </div>
 
-  <div id="tab-notation" class="tab-panel">
-    <h1>Drum Sight-Reading Practice &mdash; Quarter Notes</h1>
-    <div id="workbook-root"></div>
+  <div id="tab-sheetmusic" class="tab-panel">
+    <h1>Sheet Music</h1>
+    <div class="warmup-file-controls">
+      <label for="song-select">Song</label>
+      <select id="song-select" class="file-select"></select>
+    </div>
+    <div id="song-warnings"></div>
+    <div id="song-audio-status"></div>
+    <div id="song-root"></div>
   </div>
 </div>
 
-<script src="js/vexflow.js"></script>
-<script src="js/instruments.js"></script>
-<script src="js/state.js"></script>
-<script src="js/notation-render.js"></script>
-<script src="js/grid-render.js"></script>
+<div id="player-bar" style="display:none;">
+  <button id="player-play-toggle">&#9654;</button>
+  <span id="player-time-current">0:00</span>
+  <div id="player-progress-track">
+    <div id="player-progress-fill"></div>
+  </div>
+  <span id="player-time-total">--:--</span>
+  <label id="player-metronome-label">
+    <input type="checkbox" id="player-metronome-toggle">
+    Metronome
+  </label>
+</div>
+
+<script src="js/alphaTab.min.js"></script>
 <script src="js/routines.js"></script>
+<script src="js/songs.js"></script>
 <script src="js/metronome.js"></script>
-<script src="js/sequencer.js"></script>
+<script src="js/sheetmusic-tab.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

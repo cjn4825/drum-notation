@@ -1,94 +1,7 @@
 (function () {
-  var editMode = false;
-  var root = document.getElementById("workbook-root");
-  var editBtn = document.getElementById("edit-mode-toggle");
-  var exercisePlaybackRefs = []; // [{ id, btn, cursorEl }] rebuilt each renderAll()
-
   function currentBpm() {
     return parseInt(document.getElementById("bpm-input").value, 10) || 80;
   }
-
-  function renderAll() {
-    SequencerPlayer.stop(); // any edit invalidates the currently-playing timeline/positions
-    root.innerHTML = "";
-    exercisePlaybackRefs = [];
-
-    State.getExercises().forEach(function (exercise) {
-      var wrap = document.createElement("div");
-      wrap.className = "exercise";
-      root.appendChild(wrap); // attach before rendering: VexFlow looks up its target element by ID in the live document
-
-      var h3 = document.createElement("h3");
-      h3.textContent = exercise.title;
-      wrap.appendChild(h3);
-
-      var controls = document.createElement("div");
-      controls.className = "exercise-controls";
-      var playBtn = document.createElement("button");
-      playBtn.className = "ex-play-toggle";
-      playBtn.textContent = "Start";
-      controls.appendChild(playBtn);
-      wrap.appendChild(controls);
-
-      var notationDiv = document.createElement("div");
-      notationDiv.className = "staff-wrap";
-      wrap.appendChild(notationDiv);
-      var layout = renderNotation(window.VexFlow, document, notationDiv, exercise);
-
-      var cursorEl = document.createElement("div");
-      cursorEl.className = "practice-cursor";
-      cursorEl.style.display = "none";
-      notationDiv.appendChild(cursorEl);
-
-      playBtn.addEventListener("click", function () {
-        if (SequencerPlayer.getActiveExerciseId() === exercise.id) {
-          SequencerPlayer.stop();
-        } else {
-          SequencerPlayer.start(exercise.id, exercise, layout.notePositions, cursorEl, currentBpm());
-        }
-        syncPlaybackButtons();
-      });
-
-      exercisePlaybackRefs.push({ id: exercise.id, btn: playBtn, cursorEl: cursorEl });
-
-      if (editMode) {
-        var gridDiv = document.createElement("div");
-        gridDiv.className = "grid-wrap";
-        wrap.appendChild(gridDiv);
-        renderGrid(document, gridDiv, exercise, renderAll);
-      }
-    });
-
-    syncPlaybackButtons();
-  }
-
-  // Only one thing can drive the shared metronome clock at a time (either
-  // the plain global click, or one exercise's click+cursor together) --
-  // this keeps every button's label in sync with whichever is active,
-  // without tearing down/rebuilding the notation itself.
-  function syncPlaybackButtons() {
-    var activeId = SequencerPlayer.getActiveExerciseId();
-    exercisePlaybackRefs.forEach(function (ref) {
-      var isActive = ref.id === activeId;
-      ref.btn.textContent = isActive ? "Stop" : "Start";
-      ref.btn.classList.toggle("active", isActive);
-    });
-
-    var metronomeToggle = document.getElementById("metronome-toggle");
-    var running = Metronome.isRunning();
-    metronomeToggle.textContent = running ? "Stop" : "Start";
-    metronomeToggle.classList.toggle("active", running);
-  }
-
-  editBtn.addEventListener("click", function () {
-    editMode = !editMode;
-    editBtn.textContent = editMode ? "Exit Edit Mode" : "Edit Mode";
-    editBtn.classList.toggle("active", editMode);
-    document.body.classList.toggle("edit-mode-on", editMode);
-    renderAll();
-  });
-
-  renderAll();
 
   // --- Tabs ---
   var tabButtons = document.querySelectorAll(".tab-btn");
@@ -99,6 +12,23 @@
       tabPanels.forEach(function (p) { p.classList.remove("active"); });
       btn.classList.add("active");
       document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+
+      // The free-running warmup metronome doesn't apply to Sheet Music (which
+      // has its own song-tempo-synced click on the player bar instead), so
+      // hide it there -- and stop it rather than leaving it silently ticking
+      // behind a hidden panel.
+      var metronomePanel = document.getElementById("metronome-panel");
+      if (btn.dataset.tab === "warmup") {
+        metronomePanel.style.display = "";
+      } else {
+        metronomePanel.style.display = "none";
+        if (Metronome.isRunning()) {
+          Metronome.stop();
+          var toggle = document.getElementById("metronome-toggle");
+          toggle.textContent = "Start";
+          toggle.classList.remove("active");
+        }
+      }
     });
   });
 
@@ -197,12 +127,12 @@
 
   metronomeToggle.addEventListener("click", function () {
     if (Metronome.isRunning()) {
-      SequencerPlayer.stop(); // the global button is the plain click; stop covers either mode
+      Metronome.stop();
     } else {
-      SequencerPlayer.stop(); // starting the plain click always takes over from any exercise playback
       Metronome.start(currentBpm());
     }
-    syncPlaybackButtons();
+    metronomeToggle.textContent = Metronome.isRunning() ? "Stop" : "Start";
+    metronomeToggle.classList.toggle("active", Metronome.isRunning());
   });
 
   bpmInput.addEventListener("change", function () {

@@ -78,6 +78,36 @@ var Metronome = (function () {
     scheduler();
   }
 
+  // Starts ticking phase-locked to an external timeline that's already
+  // `elapsedSeconds` into its own beat grid (e.g. a song currently playing
+  // at a known, constant BPM) rather than always starting a fresh beat 0 at
+  // "now" -- used by the Sheet Music tab's song-synced click, so seeking
+  // around a song keeps clicking on the same absolute beat grid instead of
+  // restarting the count from wherever you land.
+  function startAt(startBpm, elapsedSeconds) {
+    if (isRunning) stop();
+    if (startBpm) bpm = startBpm;
+    ensureContext();
+
+    var secondsPerBeat = 60.0 / bpm;
+    var sinceLastBeat = elapsedSeconds % secondsPerBeat;
+    var epsilon = 0.03; // close enough to a beat boundary to click on it now, rather than waiting a full beat
+    var beatIndex, delay;
+    if (sinceLastBeat <= epsilon) {
+      beatIndex = Math.round(elapsedSeconds / secondsPerBeat);
+      delay = 0.03;
+    } else {
+      beatIndex = Math.floor(elapsedSeconds / secondsPerBeat) + 1;
+      delay = secondsPerBeat - sinceLastBeat;
+    }
+
+    isRunning = true;
+    beatCount = beatIndex;
+    nextNoteTime = audioCtx.currentTime + delay;
+    playStartTime = nextNoteTime - beatIndex * secondsPerBeat;
+    scheduler();
+  }
+
   function stop() {
     isRunning = false;
     if (timerId) clearTimeout(timerId);
@@ -117,6 +147,7 @@ var Metronome = (function () {
 
   return {
     start: start,
+    startAt: startAt,
     stop: stop,
     setBpm: setBpm,
     getBpm: getBpm,

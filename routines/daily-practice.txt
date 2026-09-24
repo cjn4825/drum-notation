@@ -1,46 +1,103 @@
 --------------------------------------------------------------------------------
-PART 1: PRACTICE PAD (5 MINS PER SECTION)
+PART 1: PRACTICE PAD (15-20 MINS TOTAL)
 --------------------------------------------------------------------------------
 
-STAGE 1: WARMUP & FOUNDATIONS @ 60 BPM
-  8-on-a-Hand:       R R R R R R R R | L L L L L L L L
-  Single Stroke:     R L R L R L R L | R L R L
-  Double Stroke:     R R L L R R L L | R R L L R R L L R
-  Single Paradiddle: R l r r | L r l l
+STAGE 1: WARMUP & FOUNDATIONS (5 MINS) @ 60-70 BPM
+  8-on-a-Hand (8ths):
+    Count:    1  &  2  &  3  &  4  &  | 1  &  2  &  3  &  4  &
+    Sticking: R  R  R  R  R  R  R  R  | L  L  L  L  L  L  L  L
 
-STAGE 2: DIDDLES, FLAMS & DRAGS @ 70 BPM
-  Double Paradiddle: R L R L R R | L R L R L L
-  Paradiddle-Diddle: R L R R L L | R L R R L L
-  5-Stroke Roll:     R R L L R | L L R R L
-  6-Stroke Roll:     R L L R R L
-  Flam & Flam Tap:   lR | rL | lR R | rL L
-  Flam Accent:       lR L R | rL R L
-  Drag & Drag Tap:   rrL | llR | rrL R | llR L
+  Single Stroke Roll (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
+    Sticking: R  L  R  L  R  L  R  L  | R  L  R  L  R  L  R  L
 
-STAGE 3: SPEED & ACCENTS @ 90+ BPM
-  Stroke Integration: R L R L R L R L | R R L L R R L L
-  Dynamic Accents:    R l r r | L r l l | R L L R R L
-  Speed Bursts:       R R L L R | R R L L R R L L R | R L R R L L
-  Burnout:            R L R L | R R L L (Slow -> Fast -> Slow)
+  Double Stroke Roll (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a  | 1
+    Sticking: R  R  L  L  R  R  L  L  | R  R  L  L  R  R  L  L  | R
+
+  Single Paradiddle (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
+    Sticking: R  l  r  r  L  r  l  l  | R  l  r  r  L  r  l  l
+
+STAGE 2: DIDDLES, FLAMS & DRAGS (5-8 MINS) @ 70-80 BPM (PICK 2-3 DAILY)
+  Double Paradiddle (16th Triplets):
+    Count:    1  &  a  a  &  a  | 2  &  a  a  &  a
+    Sticking: R  L  R  L  R  R  | L  R  L  R  L  L
+
+  Paradiddle-Diddle (16th Triplets):
+    Count:    1  &  a  a  &  a  | 2  &  a  a  &  a
+    Sticking: R  L  R  R  L  L  | R  L  R  R  L  L
+
+  5-Stroke Roll (16ths to 8th):
+    Count:    1  e  &  a  2  | 3  e  &  a  4
+    Sticking: R  R  L  L  R  | L  L  R  R  L
+
+  6-Stroke Roll (16th Triplets):
+    Count:    1  &  a  a  &  a  | 2  &  a  a  &  a
+    Sticking: R  L  L  R  R  L  | R  L  L  R  R  L
+
+  Flam Tap (16ths):
+    Count:    1     e  2     e  | 3     e  4     e
+    Sticking: lR    R  rL    L  | lR    R  rL    L
+
+  Flam Accent (16th Triplets):
+    Count:    1     &  a  2     &  a
+    Sticking: lR    L  R  rL    R  L
+
+  Drag Tap (16ths):
+    Count:    1     e  &  2     e  &
+    Sticking: rrL   R  .  llR   L  .
+
+STAGE 3: SPEED & ACCENTS (5 MINS) @ 90+ BPM
+  Stroke Integration (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
+    Sticking: R  L  R  L  R  L  R  L  | R  R  L  L  R  R  L  L
+
+  Dynamic Accents (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
+    Sticking: R  l  r  r  L  r  l  l  | R  L  L  R  R  L  r  l
+
+  Burnout / Pyramid (16ths):
+    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
+    Sticking: R  L  R  L  R  L  R  L  | R  R  L  L  R  R  L  L (Slow -> Fast -> Slow)
 
 
 --------------------------------------------------------------------------------
-PART 2: DRUM KIT (5 MINS PER SECTION) @ 70-80 BPM
+PART 2: DRUM KIT (15 MINS TOTAL) @ 70-85 BPM
 --------------------------------------------------------------------------------
 
-STAGE 1: KIT ORCHESTRATION
-  Singles & Doubles:   R -> High Tom | L -> Snare
-                       R R -> Floor Tom | L L -> Snare
-  Paradiddle & 6-Str:  R -> Floor | L -> High Tom | r r / l l -> Snare
-                       R l l r r L
-  Flams, Drags & Rolls: rrL R -> Ride Bell | R R L L R -> Crash+Kick
+STAGE 1: KIT ORCHESTRATION (5 MINS)
+  Singles & Doubles (16ths):
+    Count:    1    e    &    a    2    e    &    a
+    Voices:   High Snare High Snare Floor Snare Floor Snare
+    Sticking: R    L    R    L    R    R    L    L
 
-STAGE 2: GROOVE DYNAMICS
-  Ghost Notes:         R l r r L r l l | rrL R llR L (Keep 8th Hi-Hat)
+  6-Stroke Roll Movement (16th Triplets):
+    Count:    1    &    a    a    &    a
+    Voices:   Floor Snare Snare Snare Snare High
+    Sticking: R    l    l    r    r    L
 
-STAGE 3: GROOVE TO FILL TRANSITIONS
+STAGE 2: GROOVE DYNAMICS (5 MINS)
+  Ghosted Paradiddle Groove (16ths):
+    Count:    1  e  &  a  2  e  &  a  3  e  &  a  4  e  &  a
+    Hi-Hat:   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+    Snare:       .  .     X  .        .  .     X  .  .
+    Kick:     K        K        K  K        K
+
+STAGE 3: GROOVE TO FILL TRANSITIONS (5 MINS)
   4-Bar Loop:
-    Bars 1-3 (Groove): Hi-Hat (R 8ths) | Snare (L on 2/4) | Kick (1/3)
-    Bar 4 (Fill):      R L L R R L | R L R R L L | R R L L R
-    Bar 5 (Reset):     R (Crash + Kick on Beat 1)
+    Bars 1-3 (Groove - 8ths):
+      Count:  1  &  2  &  3  &  4  &
+      Hi-Hat: x  x  x  x  x  x  x  x
+      Snare:        X           X
+      Kick:   K        K  K
+
+    Bar 4 (Fill - 16ths):
+      Count:  1  e  &  a  2  e  &  a  3  e  &  a  4  e  &  a
+      Voices: High Snare Floor Snare High High Floor Floor Snare Snare High Snare
+      Stick:  R    L     L     R     R    L     R     L     R     R     L    L
+
+    Bar 5 (Reset):
+      Count:  1
+      Action: Crash + Kick on Beat 1
 ================================================================================
