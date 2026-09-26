@@ -1,54 +1,64 @@
 # Drum-Notation
-Simple, local drum practice app: a warmup routine notepad, a metronome, and a PDF viewer for method books.
+Webapp for practicing drums offline.
 
 ## How to use
 
-### Method 1: Docker
+### Method 1: Docker GHCR/CICD
 
-Build the image.
-
-```bash
-# be in the drum-notation dir
-# or just specify the cloned dir
-docker build -t drum-notation .
-```
-
-Run the image with these arguments:
+This is supported on both amd64 and arm64 systems.
 
 ```bash
-docker run -d --name drum-notation \
+
+# pull image
+docker pull ghcr.io/cjn4825/drum-notation:latest
+
+# run image with needed args
+docker run -d \
+  --name drum-notation \
+  --restart unless-stopped \
   -p 8000:8000 \
   -v "$(pwd)/routines:/app/routines" \
-  -v "$(pwd)/books:/app/books" \
+  --user "$(id -u):$(id -g)" \
+  ghcr.io/cjn4825/drum-notation:latest
+
+# (optional) Use watchtower to auto pull new iamges
+docker run -d \
+  --name watchtower \
+  --restart unless-stopped \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --interval 300 \
+  --cleanup \
+  drum-notation
+
+```
+
+### Method 2: Docker local
+
+```bash
+
+# Build image
+docker build -t drum-notation <cloned dir path>
+
+# run with needed args
+docker run -d \
+  --name drum-notation \
+  --restart unless-stopped \
+  -p 8000:8000 \
+  -v "$(pwd)/routines:/app/routines" \
   --user "$(id -u):$(id -g)" \
   drum-notation
 ```
 
-If the container is stopped without a restart policy or docker Compose use:
+### Method 3: No Docker
 
 ```bash
-docker start drum-notation
-```
-
-But it's better to automate this with the above mentioned methods as well.
-
-### Method 2: No Docker
-
-Just start the Python-based http server with this on the server.
-
-```bash
+# Manually use the Python-based http server on the server.
+# defaults to port 8000 localhost
 python3 ~/drum-notation/server.py
 ```
 
-Once confirmed working, open localhost port 8000 in a browser.
-
 ## Practice Files
-* Practice Files are saved in the routines folder.
-* You can freely create valid files in the dir (No spaces or slashes and need to end in .txt).
-* As long as you click the save button, any changes are saved on the host in both install methods.
-
-## Books
-* The "Books" tab reads PDFs from the `books/` folder, drop files in there and reload the page.
-
-## Disclaimer
-* Mostly vibe-coded since I don't care to learn the JavaScript/CSS/HTML stack in depth. Focusing on the deployment mostly.
+* Practice Files are saved in the routines folder
+* You can freely create valid files in the dir (No spaces or slashes and need to end in .txt)
+* As long as you click the save button, any changes are saved on the host in both install methods
