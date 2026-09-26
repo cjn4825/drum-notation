@@ -2,7 +2,7 @@
 PART 1: PRACTICE PAD (15-20 MINS TOTAL)
 --------------------------------------------------------------------------------
 
-STAGE 1: WARMUP & FOUNDATIONS (5 MINS) @ 60-70 BPM
+STAGE 1: WARMUP & FOUNDATIONS (8 MINS) @ 60-70 BPM
   8-on-a-Hand (8ths):
     Count:    1  &  2  &  3  &  4  &  | 1  &  2  &  3  &  4  &
     Sticking: R  R  R  R  R  R  R  R  | L  L  L  L  L  L  L  L
@@ -63,7 +63,19 @@ STAGE 3: SPEED & ACCENTS (5 MINS) @ 90+ BPM
 
 
 --------------------------------------------------------------------------------
-PART 2: DRUM KIT (15 MINS TOTAL) @ 70-85 BPM
+PART 2: READING & INDEPENDENCE (15-20 MINS TOTAL) @ 60-75 BPM
+--------------------------------------------------------------------------------
+
+BOOK WORK: SYNCOPATION / STICK CONTROL / CHAPIN
+  Pad & Kit Syncopation (Snare & Kick):
+    Count:    1  e  &  a  2  e  &  a  3  e  &  a  4  e  &  a
+    HH Foot:  x         x         x         x           (Pulse 1, 2, 3, 4)
+    Snare:    Line-by-line top rhythms (Read & Count Out Loud)
+    Kick:     Line-by-line bottom rhythms
+
+
+--------------------------------------------------------------------------------
+PART 3: DRUM KIT (15-20 MINS TOTAL) @ 70-85 BPM
 --------------------------------------------------------------------------------
 
 STAGE 1: KIT ORCHESTRATION (5 MINS)

@@ -4,6 +4,9 @@
   }
 
   // --- Tabs ---
+  // The metronome panel is fixed/global (see #metronome-panel in CSS) and
+  // stays visible across every tab, so switching tabs only needs to swap
+  // which panel is shown -- it doesn't touch the metronome at all.
   var tabButtons = document.querySelectorAll(".tab-btn");
   var tabPanels = document.querySelectorAll(".tab-panel");
   tabButtons.forEach(function (btn) {
@@ -12,23 +15,6 @@
       tabPanels.forEach(function (p) { p.classList.remove("active"); });
       btn.classList.add("active");
       document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
-
-      // The free-running warmup metronome doesn't apply to Sheet Music (which
-      // has its own song-tempo-synced click on the player bar instead), so
-      // hide it there -- and stop it rather than leaving it silently ticking
-      // behind a hidden panel.
-      var metronomePanel = document.getElementById("metronome-panel");
-      if (btn.dataset.tab === "warmup") {
-        metronomePanel.style.display = "";
-      } else {
-        metronomePanel.style.display = "none";
-        if (Metronome.isRunning()) {
-          Metronome.stop();
-          var toggle = document.getElementById("metronome-toggle");
-          toggle.textContent = "Start";
-          toggle.classList.remove("active");
-        }
-      }
     });
   });
 
