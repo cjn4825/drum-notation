@@ -44,7 +44,7 @@ ROUTINES_DIR = os.path.join(SCRIPT_DIR, "routines")
 ROUTINES_PREFIX = "/api/routines/"
 BOOKS_DIR = os.path.join(SCRIPT_DIR, "books")
 BOOKS_PREFIX = "/api/books/"
-BOOKS_EXTENSIONS = (".pdf",)
+PDF_MAGIC = b"%PDF-"
 
 # Deliberately strict: letters, digits, dot, underscore, hyphen, must end in
 # .txt. No slashes, no "..", so a crafted name can never escape ROUTINES_DIR.
@@ -83,6 +83,18 @@ def safe_books_relpath(rel_path):
     return candidate
 
 
+# Identifies books by content (the standard %PDF-x.y magic bytes at the
+# very start of the file) rather than by ".pdf" extension -- so renaming a
+# file to drop the extension (e.g. for a cleaner name in the dropdown)
+# doesn't make it disappear from the listing.
+def is_pdf_file(abspath):
+    try:
+        with open(abspath, "rb") as fh:
+            return fh.read(len(PDF_MAGIC)) == PDF_MAGIC
+    except OSError:
+        return False
+
+
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/api/routines":
@@ -118,7 +130,7 @@ class Handler(SimpleHTTPRequestHandler):
             )
             files = sorted(
                 e for e in entries
-                if e.lower().endswith(BOOKS_EXTENSIONS) and os.path.isfile(os.path.join(dir_path, e))
+                if not e.startswith(".") and is_pdf_file(os.path.join(dir_path, e))
             )
             self._send_json({"folders": folders, "files": files})
             return
@@ -126,7 +138,7 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path.startswith(BOOKS_PREFIX):
             raw = urllib.parse.unquote(self.path[len(BOOKS_PREFIX):])
             path = safe_books_relpath(raw)
-            if not path or not os.path.isfile(path) or not path.lower().endswith(BOOKS_EXTENSIONS):
+            if not path or not is_pdf_file(path):
                 self.send_error(404, "Book not found")
                 return
             with open(path, "rb") as fh:
@@ -156,11 +168,21 @@ class Handler(SimpleHTTPRequestHandler):
 
         self.send_error(404)
 
+    # Every API response is generated fresh from disk on each request (e.g.
+    # /api/books re-lists the folder, doesn't cache it), so nothing here
+    # should ever be served from a cached copy either -- otherwise a browser
+    # can keep showing a stale books/ listing or a stale PDF (by URL) after
+    # you've added/renamed/replaced files on disk, surviving even a hard
+    # refresh since these are fetch()/iframe subresource loads, not the
+    # top-level navigation a hard refresh forces revalidation for.
+    NO_STORE = "no-store, must-revalidate"
+
     def _send_json(self, data, status=200):
         body = json.dumps(data).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", self.NO_STORE)
         self.end_headers()
         self.wfile.write(body)
 
@@ -169,6 +191,7 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", self.NO_STORE)
         self.end_headers()
         self.wfile.write(body)
 
@@ -176,6 +199,7 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", self.NO_STORE)
         self.end_headers()
         self.wfile.write(body)
 
