@@ -1,29 +1,8 @@
-================================================================================
-RUDIMENT ROTATION GUIDE (PICK ONE FAMILY EACH DAY)
-================================================================================
-DAY A: SINGLES & ROLLS (Speed, Flow, & Rebound)
-  * Target Rudiments: Single Stroke Roll, Double Stroke Roll, 5-Stroke Roll, 
-                      6-Stroke Roll, 9-Stroke Roll
-  * Core Focus: Smooth double-stroke rebounds and clean single-to-double switches
-  * Book Tie-In: Stick Control (Pages 5-7, Lines 1-12)
-
-DAY B: PARADIDDLES (Coordination, Accents, & Flow)
-  * Target Rudiments: Single Paradiddle, Double Paradiddle, Triple Paradiddle, 
-                      Paradiddle-Diddle
-  * Core Focus: Accent control (high accent strokes vs. low tap strokes)
-  * Book Tie-In: Stick Control (Pages 5-7, Lines 13-24) & Kit Fills
-
-DAY C: FLAMS & DRAGS (Dynamics & Grace-Note Control)
-  * Target Rudiments: Flam, Flam Tap, Flam Accent, Drag Tap
-  * Core Focus: Controlling two stick heights at once (whisper-quiet grace notes)
-  * Book Tie-In: Stick Control (Flam/Drag pages) & Syncopation Accents
-
-
 --------------------------------------------------------------------------------
-PART 1: PRACTICE PAD (15-20 MINS TOTAL)
+PART 1: PRACTICE PAD MECHANICS
 --------------------------------------------------------------------------------
 
-STAGE 1: QUICK WARMUP (3-5 MINS) @ 60-70 BPM
+STAGE 1: WARMUP @ 60-70 BPM
   8-on-a-Hand (8ths):
     Count:    1  &  2  &  3  &  4  &  | 1  &  2  &  3  &  4  &
     Sticking: R  R  R  R  R  R  R  R  | L  L  L  L  L  L  L  L
@@ -36,57 +15,8 @@ STAGE 1: QUICK WARMUP (3-5 MINS) @ 60-70 BPM
     Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a  | 1
     Sticking: R  R  L  L  R  R  L  L  | R  R  L  L  R  R  L  L  | R
 
-STAGE 2: ROTATING RUDIMENT FOCUS (10 MINS) @ 70-80 BPM
-  * Pick 2-3 Target Rudiments from Today's Family (Day A, Day B, or Day C above)
-  * 5 minutes per
-
-STAGE 3: SPEED & ACCENTS (5 MINS) @ 90+ BPM
-  Stroke Integration (16ths):
-    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
-    Sticking: R  L  R  L  R  L  R  L  | R  R  L  L  R  R  L  L
-
-  Dynamic Accents (16ths):
-    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
-    Sticking: R  l  r  r  L  r  l  l  | R  L  L  R  R  L  r  l
-
-  Burnout / Pyramid (16ths):
-    Count:    1  e  &  a  2  e  &  a  | 3  e  &  a  4  e  &  a
-    Sticking: R  L  R  L  R  L  R  L  | R  R  L  L  R  R  L  L (Slow -> Fast -> Slow)
-
-
 --------------------------------------------------------------------------------
-PART 2: READING & INDEPENDENCE BOOKS (25-30 MINS TOTAL) @ 60-75 BPM
+PART 2: READING & INDEPENDENCE ROTATION (25-30 MINS)
 --------------------------------------------------------------------------------
-
-BOOK 1: STICK CONTROL (10 MINS) -> PRACTICE PAD
-  * Run 3-4 lines from Pages 5-7 matching Today's Focus Family
-  * Loop each line 20x continuously without stopping or breaking tempo
-
-BOOK 2: SYNCOPATION (10 MINS) -> PAD & KIT
-  * Read line-by-line out loud (1 e & a)
-  * HH Foot: Keep steady 1, 2, 3, 4 pulse
-  * Snare: Read top melody lines | Kick: Read bottom melody lines
-
-BOOK 3: ADVANCED TECHNIQUES / CHAPIN (10 MINS) -> DRUM KIT
-  * Keep steady 8th-note jazz ride pattern with Right Hand
-  * Execute written independent snare and kick rhythms underneath
-
-
---------------------------------------------------------------------------------
-PART 3: DRUM KIT & MUSICAL APPLICATION (20-30 MINS TOTAL) @ 70-85 BPM
---------------------------------------------------------------------------------
-
-STAGE 1: KIT ORCHESTRATION (5 MINS)
-  * Take Today's Target Rudiments (Day A, B, or C) and voice them around the kit:
-    - Singles/Doubles: Move across High Tom, Snare, & Floor Tom
-    - Paradiddles: Accents on Toms/Cymbals, Taps on Snare
-    - Flams/Drags: Accents on Ride Bell/Crash, Grace notes on Snare
-
-STAGE 2: GROOVE DYNAMICS (5 MINS)
-  Ghosted Paradiddle Groove (16ths):
-    Count:    1  e  &  a  2  e  &  a  3  e  &  a  4  e  &  a
-    Hi-Hat:   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
-    Snare:       .  .     X  .        .  .     X  .  .
-    Kick:     K        K        K  K        K
 
 ================================================================================
